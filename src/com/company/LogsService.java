@@ -38,16 +38,16 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LogsServiceImpl {
+public class LogsService {
 
     private String dateTime;
 
     // default empty constructor
-    public LogsServiceImpl() {
+    public LogsService() {
     }
 
     // default constructor with patameter dateTime
-    public LogsServiceImpl(String dateTime) {
+    public LogsService(String dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -69,20 +69,9 @@ public class LogsServiceImpl {
 
         // @param start return time start
         LocalDateTime start = LocalDateTime.now();
+
         System.out.println(str + " search is started at - " + start);
-  /*        String myString = new String(Files.readAllBytes(
-                Paths.get("/home/george/Desktop/13-14.txt")));
-        String myString2 = myString
-             .toLowerCase()
-                .replaceAll(",", "")
-                .replaceAll("!", "")
-                .replaceAll("\\?", "")
-                .replaceAll("\\.", "")
-                .replaceAll("\"", "")
-                .replaceAll("[^A-Za-z ]", "")
-                ;
-                String[] array = myString2.split("\\n");
-   */
+
         List<String> errorLinesList = Files.lines(Paths.get("/Users/Vladyslav/Desktop/logs.txt"))
                 .filter(line -> line.contains(str))
                 .filter(line -> line.contains("ERROR"))
@@ -91,7 +80,6 @@ public class LogsServiceImpl {
         int countLines = errorLinesList.size();
 
         LocalDateTime finish = LocalDateTime.now();
-
 
         long duration = ChronoUnit.MILLIS.between(start, finish);
 
@@ -103,9 +91,9 @@ public class LogsServiceImpl {
             stringData += line + "\n";
         }
 
-        // specify output file path
+
         String optputPath = "/Users/Vladyslav/Desktop/ERROR-date " + str + ".txt";
-        // write result to the file
+
         Files.write(Paths.get(optputPath), stringData.getBytes());
 
     }

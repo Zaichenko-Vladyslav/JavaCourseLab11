@@ -49,7 +49,7 @@ public class Main {
          */
         @Override
         public void run() {
-            LogsServiceImpl service = new LogsServiceImpl();
+            LogsService service = new LogsService();
             try {
                 service.getLogsByDate(date);
             } catch (IOException e) {
@@ -60,7 +60,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        LogsServiceImpl service1 = new LogsServiceImpl();
+        LogsService service1 = new LogsService();
 
         // @param startConsistent return time start consistent way
         LocalDateTime startConsistent = LocalDateTime.now();
@@ -102,9 +102,9 @@ public class Main {
          * Comparing the duration results of two methods
          */
         if (consistentTime > parallelTime) {
-            System.out.println("\n Consequent time is best than Multi-Threading");
+            System.out.println("\n Consequent have time is best than Multi-Threading");
         } else if (consistentTime < parallelTime) {
-            System.out.println("\n Multi-Threading time is best than Consequent");
+            System.out.println("\n Multi-Threading have time is best than Consequent");
         } else {
             System.out.println("\n Time both methods is the same");
         }

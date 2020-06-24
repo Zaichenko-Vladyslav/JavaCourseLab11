@@ -66,11 +66,11 @@ public class Main {
         LocalDateTime startConsistent = LocalDateTime.now();
 
         // creating 5 such a files for 5 different days for consistent way
-        new MyThread("2019-10-13").start();
-        new MyThread("2019-10-16").start();
-        new MyThread("2019-10-17").start();
-        new MyThread("2019-10-18").start();
+        new MyThread("2019-12-09").start();
+        new MyThread("2020-01-08").start();
+        new MyThread("2020-01-11").start();
         new MyThread("2020-02-04").start();
+        new MyThread("2020-02-08").start();
 
         // @param finishConsistent return time finish consistent way
         LocalDateTime finishConsistent = LocalDateTime.now();
@@ -85,11 +85,13 @@ public class Main {
         LocalDateTime startParallel = LocalDateTime.now();
 
         // creating 5 such a files for 5 different days for parallel way
-        service1.getLogsByDate("2019-10-13");
-        service1.getLogsByDate("2019-10-16");
-        service1.getLogsByDate("2019-10-17");
-        service1.getLogsByDate("2019-10-18");
+
+        service1.getLogsByDate("2019-12-09");
+        service1.getLogsByDate("2020-01-08");
+        service1.getLogsByDate("2020-01-11");
         service1.getLogsByDate("2020-02-04");
+        service1.getLogsByDate("2020-02-08");
+
 
         // @param finishParallel return time finish parallel way
         LocalDateTime finishParallel = LocalDateTime.now();

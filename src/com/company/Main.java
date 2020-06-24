@@ -75,6 +75,7 @@ public class Main {
         // @param finishConsistent return time finish consistent way
         LocalDateTime finishConsistent = LocalDateTime.now();
 
+        // @param consistentTime count expensive time
         long consistentTime = ChronoUnit.MILLIS.between(startConsistent, finishConsistent);
 
         System.out.println("TOTAL DURATION of threads: "
@@ -93,6 +94,7 @@ public class Main {
         // @param finishParallel return time finish parallel way
         LocalDateTime finishParallel = LocalDateTime.now();
 
+        // @param parallelTime count expensive time
         long parallelTime = ChronoUnit.MILLIS.between(startParallel, finishParallel);
 
         System.out.println("TOTAL DURATION concequently: "

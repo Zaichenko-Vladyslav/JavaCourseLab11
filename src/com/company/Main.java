@@ -14,12 +14,12 @@
  * 2. Create a class that manages logs in this file.
  *
  * 3. Create a method that finds all the ERROR logs for a specific date and
- *  write them into a specific file (name = ERROR  + Date  + .log)
+ * write them into a specific file (name = ERROR  + Date  + .log)
  *
- * 4. In your main class develop a functionality to create 5 such a files
+ * 4. In your main class develop a functionality to create  5 such a files
  * for 5 different days. Launch them in consistent way (one after another).
  *
- * 5. Repeat the above task in parallel way. Multi-threading.
+ * 5. Repeat the above  task in parallel way. Multi-threading.
  *
  * 6. Compare the results.
  *
@@ -40,7 +40,7 @@ public class Main {
 
         private String date;
 
-        MyThread(String date){
+        MyThread(String date) {
             this.date = date;
         }
 
@@ -65,7 +65,7 @@ public class Main {
         // @param startConsistent return time start consistent way
         LocalDateTime startConsistent = LocalDateTime.now();
 
-        // creating 5 such a files for 5 different days for consistent way
+        // creating 5 files for 5 different days for consistent way
         new MyThread("2019-12-09").start();
         new MyThread("2020-01-08").start();
         new MyThread("2020-01-11").start();
@@ -78,20 +78,17 @@ public class Main {
         // @param consistentTime count expensive time
         long consistentTime = ChronoUnit.MILLIS.between(startConsistent, finishConsistent);
 
-        System.out.println("TOTAL DURATION of threads: "
-                + consistentTime + " milliseconds");
+        System.out.println("TOTAL DURATION of threads: " + consistentTime + " milliseconds");
 
         // @param startParallel return time start parallel way
         LocalDateTime startParallel = LocalDateTime.now();
 
         // creating 5 such a files for 5 different days for parallel way
-
         service1.getLogsByDate("2019-12-09");
         service1.getLogsByDate("2020-01-08");
         service1.getLogsByDate("2020-01-11");
         service1.getLogsByDate("2020-02-04");
         service1.getLogsByDate("2020-02-08");
-
 
         // @param finishParallel return time finish parallel way
         LocalDateTime finishParallel = LocalDateTime.now();
@@ -99,8 +96,7 @@ public class Main {
         // @param parallelTime count expensive time
         long parallelTime = ChronoUnit.MILLIS.between(startParallel, finishParallel);
 
-        System.out.println("TOTAL DURATION concequently: "
-                + parallelTime + " milliseconds");
+        System.out.println("TOTAL DURATION consequently: " + parallelTime + " milliseconds");
 
         /*
          * Comparing the duration results of two methods
@@ -112,6 +108,5 @@ public class Main {
         } else {
             System.out.println("\n Time both methods is the same");
         }
-
     }
 }

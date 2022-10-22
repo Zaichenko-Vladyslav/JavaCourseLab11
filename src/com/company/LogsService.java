@@ -14,7 +14,7 @@
  * 2. Create a class that manages logs in this file.
  *
  * 3. Create a method that finds all the ERROR logs for a specific date and
- *  write them into a specific file (name = ERROR  + Date  + .log)
+ * write them into a specific file (name = ERROR  + Date  + .log)
  *
  * 4. In your main class develop a functionality to create  5 such a files
  * for 5 different days. Launch them in consistent way (one after another).
@@ -31,7 +31,6 @@ package com.company;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -42,11 +41,11 @@ public class LogsService {
 
     private String dateTime;
 
-    // default empty constructor
     public LogsService() {
+
     }
 
-    // default constructor with patameter dateTime
+    // default constructor with parameter dateTime
     public LogsService(String dateTime) {
         this.dateTime = dateTime;
     }
@@ -56,7 +55,7 @@ public class LogsService {
         return dateTime;
     }
 
-    // Getter for parameter dateTime
+    // Setter for parameter dateTime
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
@@ -76,8 +75,7 @@ public class LogsService {
         /*
         * @param errorLinesList return list with ERROR logs by date
         */
-        List<String> errorLinesList = Files.lines(Paths
-                .get("/Users/Vladyslav/Desktop/logs.txt"))
+        List<String> errorLinesList = Files.lines(Paths.get("/Users/Vladyslav/Desktop/logs.txt"))
                 .filter(line -> line.contains(str))
                 .filter(line -> line.contains("ERROR"))
                 .collect(Collectors.toList());
@@ -93,9 +91,7 @@ public class LogsService {
         // @param duration count expensive time
         long duration = ChronoUnit.MILLIS.between(start, finish);
 
-        System.out.println("There are " + countLines
-                + " ERROR lines." + " on " + str);
-
+        System.out.println("There are " + countLines + " ERROR lines." + " on " + str);
         System.out.println("Execution time: " + duration);
 
         /*
@@ -109,11 +105,9 @@ public class LogsService {
         /*
          * @param directoryPath return directory for writing text
          */
-        String directoryPath = "/Users/Vladyslav/Desktop/ERROR-date "
-                + str + ".txt";
+        String directoryPath = "/Users/Vladyslav/Desktop/ERROR-date " + str + ".txt";
 
         // write result to file
         Files.write(Paths.get(directoryPath), stringData.getBytes());
-
     }
 }
